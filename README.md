@@ -14,7 +14,7 @@ To build project and run test, just simply run **"mvn clean install"**, you can 
 
 >- Based on the given interface, for method ```findAndHoldSeats```, it finds and holds the best available seats for a customer, so I always search the "minLevel" seats first, no matter whether the seats are continuous or not.
 
->- If the ticket is not enough for a hold request, I will return a ```SeatIsNotEnoughException``` to indicate this hold failed instead of assigning part of the seats.
+>- If there is no enought seats  for a hold request, I will return a ```SeatIsNotEnoughException``` to indicate this hold failed instead of assigning part of the seats.
 
 >- **SeatHold** is an object to keep the hold or reserved seat list. It has a ```Status``` field to identify it is in "held" status or "reserved" status. If it is in "held" status,  I use ```holdId``` to search it; if it is in "reserved" status, I use ```confirmCode``` to search. In it, I use a Java ```Timer``` and ```TimerTask``` to implement expiration, when timeout, will return its seats to ```TicketServiceImpl```.
 
