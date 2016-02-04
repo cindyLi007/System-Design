@@ -8,7 +8,7 @@ To build project and run test, just simply run **"mvn clean install"**, you can 
 
 >- My Implementation and Assumptions: 
 
-> To save time, I used a template to setup project. Please just review code in **/src/main/java/com/ticketone/** and **/src/test/java/com/ticketone/**, all other code is rendered by template. 
+>- To save time, I used a template to setup project. Please just review code in **/src/main/java/com/ticketone/** and **/src/test/java/com/ticketone/**, all other code is rendered by template. 
 
 >- To implement the given interface **TicketService**, the main engine of the application is **TicketServiceImpl**. I used ``Guava Multimap`` to store available seats grouped by level, and 2 ```ConcurrentMaps``` to store held and reserved orders.
 
