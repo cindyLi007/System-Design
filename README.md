@@ -6,7 +6,7 @@ Welcome to Ticket Service System
 
 To build project and run test, just simply run **"mvn clean install"**, you can also skip tests by add **"-DskipTests"**.
 
->- My Implementation and Assumptions: 
+>- **My Implementation and Assumptions**: 
 
 >- To save time, I used a template to setup project. Please just review code in **/src/main/java/com/ticketone/** and **/src/test/java/com/ticketone/**, all other code is rendered by template. 
 
@@ -16,7 +16,8 @@ To build project and run test, just simply run **"mvn clean install"**, you can 
 
 >- If there is no enought seats  for a hold request, I will return a ```SeatIsNotEnoughException``` to indicate this hold failed instead of assigning part of the seats.
 
->- **SeatHold** is an object to keep the hold or reserved seat list. It has a ```Status``` field to identify it is in "held" status or in "reserved" status. If it is in "held" status,  I use ```holdId``` to search it; if it is in "reserved" status, I use ```confirmCode``` to search. In it, I use a Java ```Timer``` and ```TimerTask``` to implement expiration, when timeout, will return its seats to ```TicketServiceImpl```.
+>- **SeatHold** is an object to keep the hold or reserved seat list. It has a ```Status``` field to identify it is in "held" status or in "reserved" status. If it is in "held" status,  I use ```holdId``` to search it; if it is in "reserved" status, I use ```confirmCode``` to search. In it, I use a Java ```Timer``` and ```TimerTask``` to implement expiration, when timeout, it will return its seats to ```TicketServiceImpl``` availableSeatsByLevel.
 
 >- My implementation support **Multi-threading**, I also including Unit test to test multiple threads.
 
+>- **Notes**
