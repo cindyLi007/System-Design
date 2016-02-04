@@ -16,12 +16,12 @@ To build project and run test, just simply run **"mvn clean install"**, you can 
 
 >- If there is no enough seats  for a hold request, I will return a ```SeatIsNotEnoughException``` to indicate this hold failed instead of assigning part of the seats.
 
->- **SeatHold** is an object to keep the hold or reserved seat list. It has a ```Status``` field to identify it is in "held" status or in "reserved" status. If it is in "held" status,  I use ```holdId``` to search it; if it is in "reserved" status, I use ```confirmCode``` to search it. In it, I use a Java ```Timer``` and ```TimerTask``` to implement expiration, when timeout, it will return its seats to ```TicketServiceImpl``` availableSeatsByLevel.
+>- **SeatHold** is an object to keep the hold or reserved seat list. It has a ```Status``` field to identify it is in "held" status or in "reserved" status. If it is in "held" status,  I use ```holdId``` to search it; if it is in "reserved" status, I use ```confirmCode``` to search it. In it, I use a Java ```Timer``` and ```TimerTask``` to implement expiration, when timeout, it will return its seats to ```TicketServiceImpl``` availableSeatsByLevel list.
 
 >- My implementation support **Multi-threading**, I also including Unit test to test multiple threads.
 
 **Notes**
- >- I include a Web Service class ```TicketResource``` to provide a Web Service endpoint for querying seating by level, holding seating and confirming reservation.
+ >- I include a Web Service class ```TicketResource``` to provide a Web Service endpoint for querying seats by level, holding seats and confirming reservation.
  
  >- Now I used in-memory storage for seats. For the production code, should use a data source to store seats, and implement cache for reservations.
 
