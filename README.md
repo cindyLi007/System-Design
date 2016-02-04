@@ -6,7 +6,7 @@ Welcome to Ticket Service System
 
 To build project and run test, just simply run **"mvn clean install"**, you can also skip tests by add **"-DskipTests"**.
 
->- My Impllementation and assumptions: 
+>- My Implementation and Assumptions: 
 
 > To save time, I used a template to setup project. Please just review code in **/src/main/java/com/ticketone/** and **/src/test/java/com/ticketone/**, all other code is rendered by template. 
 
