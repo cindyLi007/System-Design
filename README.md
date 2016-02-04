@@ -1,12 +1,22 @@
-Ticket Service Web Service
+Ticket Service System
 --------------------------------------------------------------------------------
-Welcome to Ticket Service Web Service
+Welcome to Ticket Service System
 
-Ticket Service is an online Web Service that processes ticket search, hold and purchase using the Web Service API.
+>- Ticket Service is an online Web Service system that processes ticket search, hold and reserved using the Web API.
 
-To build project and run test, just simply run "mvn clean install", you can also skip tests by add "-DskipTests"
+To build project and run test, just simply run **"mvn clean install"**, you can also skip tests by add **"-DskipTests"**.
 
-The main engine of the application is TicketServiceImpl. I used Multimap to store available seats grouped by level, and 2 CurrentMaps to store held and reserved orders.
+>- My Impllementation and assumptions: 
 
-Since based on the given interface, for method findAndHoldSeats, it finds and holds the best available seats for a customer, so I always find search the "minLevel" first, no matter whether the seats are continuous or not.
+> To save time, I used a template to setup project. Please just review code in **/src/main/java/com/ticketone/** and **/src/test/java/com/ticketone/**, all other code is rendered by template. 
+
+>- To implement the given interface **TicketService**, the main engine of the application is **TicketServiceImpl**. I used ``Guava Multimap`` to store available seats grouped by level, and 2 ```ConcurrentMaps``` to store held and reserved orders.
+
+>- Based on the given interface, for method ```findAndHoldSeats```, it finds and holds the best available seats for a customer, so I always search the "minLevel" seats first, no matter whether the seats are continuous or not.
+
+>- If the ticket is not enough for a hold request, I will return a ```SeatIsNotEnoughException``` to indicate this hold failed instead of assigning part of the seats.
+
+>- **SeatHold** is an object to keep the hold or reserved seat list. It has a ```Status``` field to identify it is in "held" status or "reserved" status. If it is in "held" status,  I use ```holdId``` to search it; if it is in "reserved" status, I use ```confirmCode``` to search. In it, I use a Java ```Timer``` and ```TimerTask``` to implement expiration, when timeout, will return its seats to ```TicketServiceImpl```.
+
+>- My implementation support **Multi-threading**, I also including Unit test to test multiple threads.
 
