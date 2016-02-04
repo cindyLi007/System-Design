@@ -6,7 +6,7 @@ Welcome to Ticket Service System
 
 To build project and run test, just simply run **"mvn clean install"**, you can also skip tests by add **"-DskipTests"**.
 
->- **My Implementation and Assumptions**: 
+**My Implementation and Assumptions**: 
 
 >- To save time, I used a template to setup project. Please just review code in **/src/main/java/com/ticketone/** and **/src/test/java/com/ticketone/**, all other code is rendered by template. 
 
@@ -20,4 +20,8 @@ To build project and run test, just simply run **"mvn clean install"**, you can 
 
 >- My implementation support **Multi-threading**, I also including Unit test to test multiple threads.
 
->- **Notes**
+**Notes**
+ >- I include a Web Service class ```TicketResource``` to provide a Web Service endpoint for querying seating by level, holding seating and confirming reservation.
+ 
+ >- Now I used in-memory storage for seats. For the production code, should use a data source to store seats, and implement cache for reservations.
+
