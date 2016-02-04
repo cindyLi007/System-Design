@@ -2,7 +2,7 @@ Ticket Service System
 --------------------------------------------------------------------------------
 Welcome to Ticket Service System
 
->- Ticket Service is an online Web Service system that processes ticket search, hold and reserved using the Web API.
+>- Ticket Service system is an Web Service that processes ticket search, hold and reserved using Web API.
 
 To build project and run test, just simply run **"mvn clean install"**, you can also skip tests by add **"-DskipTests"**.
 
